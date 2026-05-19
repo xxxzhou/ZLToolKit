@@ -12,6 +12,7 @@
 
 #if defined (OS_IPHONE)
 #import <Foundation/Foundation.h>
+#import <PushKit/PushKit.h>
 #endif //OS_IPHONE
 
 namespace toolkit {
@@ -43,8 +44,8 @@ bool SockNum::setSocketOfIOS(int sock){
     }
     
     
-    Boolean r1 = CFReadStreamSetProperty((CFReadStreamRef)readStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeVoIP);
-    Boolean r2 = CFWriteStreamSetProperty((CFWriteStreamRef)writeStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeVoIP);
+    Boolean r1 = CFReadStreamSetProperty((CFReadStreamRef)readStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeBackground);
+    Boolean r2 = CFWriteStreamSetProperty((CFWriteStreamRef)writeStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeBackground);
     
     if (!r1 || !r2)
     {
